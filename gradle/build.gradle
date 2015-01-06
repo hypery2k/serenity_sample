@@ -1,0 +1,84 @@
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'maven'
+//apply plugin: 'ThucydidesPlugin'
+
+
+group = 'thucydides.samples.serenity-gradle-plugin'
+description = 'Sample Serenity project'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'https://martinreinhardt-online.de/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+buildscript {
+    dependencies {
+        classpath: 'net.thucydides.plugins.gradle:thucydides-gradle-plugin:0.0.1'
+    }
+}
+
+apply from: 'dependencies.gradle'
+
+sourceSets.all { set ->
+    def jarTask = task("${set.name}Jar", type: Jar) {
+        baseName = baseName + "-$set.name"
+        from set.output
+    }
+
+    artifacts {
+        archives jarTask
+    }
+}
+/*
+thucydides {
+    issueTrackerUrl = 'https://github.com/hypery2k/serenity_sample/issues'
+}*/
+
+sourceSets {
+    api
+    impl
+}
+
+dependencies {
+    compile libs.slf4jSimple
+    compile libs.serenity
+
+    implCompile sourceSets.api.output
+
+    testCompile libs.junit
+    testCompile libs.hamcrest
+    testCompile libs.serenityJunit
+    testCompile libs.serenityJunit
+    runtime configurations.apiRuntime
+    runtime configurations.implRuntime
+}
+
+jar {
+    from sourceSets.api.output
+    from sourceSets.impl.output
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri("${buildDir}/repo"))
+
+            addFilter("main") { artifact, file -> artifact.name == project.name }
+            ["api", "impl"].each { type ->
+                addFilter(type) { artifact, file -> artifact.name.endsWith("-$type") }
+                
+                // We now have to map our configurations to the correct maven scope for each pom
+                ["compile", "runtime"].each { scope ->
+                    configuration = configurations[type + scope.capitalize()]
+                    ["main", type].each { pomName ->
+                        pom(pomName).scopeMappings.addMapping 1, configuration, scope
+                    }
+                }
+            }
+
+        }
+    }
+}
