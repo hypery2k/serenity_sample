@@ -13,28 +13,28 @@ public class GoogleSearchPage extends PageObject{
 		super(driver);
 	}
 
-	@FindBy(id="gbqfq")
+	@FindBy(xpath="//*[@id='lst-ib']")
 	private WebElement searchInput;
-	
-	@FindBy(id="gbqfbw")
+
+	@FindBy(xpath="//*[@id='sblsbb']/button")
 	private WebElement searchButton;
-	
-	@FindBy(className="gbit")
+
+	@FindBy(className="gb_70")
 	private WebElement signInButton;
-	
+
 	public void clickOnSignIn(){
 		element(signInButton).waitUntilVisible();
 		signInButton.click();
 	}
-	
+
 	public void inputTerm(String searchTerm){
 		element(searchInput).waitUntilVisible();
 		element(searchInput).typeAndEnter(searchTerm);
 	}
-	
+
 	public void clickOnSearch(){
 		element(searchButton).waitUntilVisible();
 		searchButton.click();
 	}
-	
+
 }

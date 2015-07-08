@@ -16,12 +16,12 @@ public class GoogleResultsPage extends PageObject {
 		super(driver);
 	}
 
-	@FindBy(id = "search")
+	@FindBy(id = "ires")
 	private WebElement searchResults;
 
 	public void findResult(String resultsTerm) {
 		element(searchResults).waitUntilVisible();
-		waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div#search li.g")));
+		waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div#ires li.g")));
 		List<WebElement> resultList = searchResults.findElements(By.cssSelector("li.g"));
 
 		theFor: for (WebElement elementNow : resultList) {
