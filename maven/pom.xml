@@ -78,7 +78,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.12</version>
+                <version>2.18.1</version>
                 <configuration>
                     <includes>
                         <include>**/*Test.java</include>
@@ -87,9 +87,12 @@
                     </includes>
                     <argLine>-Xmx512m</argLine>
                     <parallel>classes</parallel>
+                    <perCoreThreadCount>true</perCoreThreadCount>
+                    <threadCount>2</threadCount>
+                    <forkCount>2C</forkCount>
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
-                        <thucydides.issue.tracker.url>https://github.com/hypery2k/thucydides_sample/issues/{0}</thucydides.issue.tracker.url>
+                        <thucydides.issue.tracker.url>https://github.com/hypery2k/serenity_sample/issues/{0}</thucydides.issue.tracker.url>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
@@ -106,8 +109,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
