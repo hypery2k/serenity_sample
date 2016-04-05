@@ -18,9 +18,9 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
-}
+    }
     dependencies {
-	       classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")
     }
 }
 
@@ -34,10 +34,6 @@ sourceSets.all { set ->
         archives jarTask
     }
 }
-/*
-thucydides {
-    issueTrackerUrl = 'https://github.com/hypery2k/serenity_sample/issues'
-}*/
 
 sourceSets {
     api

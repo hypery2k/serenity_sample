@@ -24,7 +24,7 @@ public class GoogleSearchPendingTest {
 
     @Test
     @Pending
-    @Title("This test will not be run.")
+    @Title("This test will not be run. #2")
     public void googleSearchPendingTest() {
         googleSteps.performSearch("evozon");
         googleSteps.findSearchResult(" on Twitter");
