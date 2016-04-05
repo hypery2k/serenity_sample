@@ -24,22 +24,6 @@ buildscript {
     }
 }
 
-sourceSets.all { set ->
-    def jarTask = task("${set.name}Jar", type: Jar) {
-        baseName = baseName + "-$set.name"
-        from set.output
-    }
-
-    artifacts {
-        archives jarTask
-    }
-}
-
-sourceSets {
-    api
-    impl
-}
-
 dependencies {
     compile libs.slf4jSimple
     compile libs.serenity
