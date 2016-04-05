@@ -63,6 +63,12 @@ jar {
     from sourceSets.impl.output
 }
 
+task e2e(type: Test) {
+    options {
+        systemProperties(System.getProperties())
+    }
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
