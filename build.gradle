@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply from: 'dependencies.gradle'
+
+group = 'thucydides.samples.serenity-gradle-plugin'
+description = 'Sample Serenity project'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.28")
+    }
+}
+
+dependencies {
+    compile libs.slf4jSimple
+    compile libs.serenity
+
+    testCompile libs.junit
+    testCompile libs.hamcrest
+    testCompile libs.serenityJunit
+    testCompile libs.serenityJunit
+}
+
+test {
+    options {
+        systemProperties(System.getProperties())
+    }
+}
+
+// continue build to generate reports
+gradle.startParameter.continueOnFailure = true
