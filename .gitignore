@@ -16,18 +16,8 @@ hs_err_pid*
 .idea/*
 *.iml
 
+# Build
+.gradle/*
+build/*
 target/*
-
-gradle/.classpath
-gradle/.project
-gradle/.settings/
-gradle/.gradle/*
-gradle/build/*
-gradle/target/*
-
-maven/.classpath
-maven/.project
-maven/.settings/*
-maven/build/*
-maven/target/*
 
