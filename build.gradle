@@ -5,7 +5,7 @@ apply plugin: 'maven'
 apply plugin: 'net.serenity-bdd.aggregator'
 apply from: 'dependencies.gradle'
 
-group = 'thucydides.samples.serenity-gradle-plugin'
+group = 'de.martinreinhardt'
 description = 'Sample Serenity project'
 version = '1.0-SNAPSHOT'
 
