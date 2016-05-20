@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 @RunWith(SerenityRunner.class)
 public class GoogleLoginTest {
 
-	@Managed(uniqueSession = true)
+	@Managed//(uniqueSession = true)
 	public WebDriver webdriver;
 
 	@ManagedPages(defaultUrl = "http://www.google.com")

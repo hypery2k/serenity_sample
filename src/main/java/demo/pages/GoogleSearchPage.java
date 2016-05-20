@@ -12,13 +12,13 @@ public class GoogleSearchPage extends PageObject {
         super(driver);
     }
 
-    @FindBy(id = "gbqfq")
+    @FindBy(xpath = "//input[@type=\"search\"]")
     private WebElement searchInput;
 
-    @FindBy(id = "gbqfbw")
+    @FindBy(xpath = "//button[@type=\"submit\"]")
     private WebElement searchButton;
 
-    @FindBy(className = "gbit")
+    @FindBy(xpath = "//a[@target=\"_top\"]")
     private WebElement signInButton;
 
     public void clickOnSignIn() {
