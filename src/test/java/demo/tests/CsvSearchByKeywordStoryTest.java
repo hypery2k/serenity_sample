@@ -4,10 +4,8 @@ import demo.requirements.Wikipedia;
 import demo.steps.WikipediaEndUserSteps;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
-import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Test;
@@ -18,6 +16,9 @@ import org.openqa.selenium.WebDriver;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom("searchData.csv")
 public class CsvSearchByKeywordStoryTest {
+
+    @Managed
+    WebDriver driver;
 
     String keyword;
     String definition;
@@ -38,12 +39,6 @@ public class CsvSearchByKeywordStoryTest {
     public void setDefinition(String definition) {
         this.definition = definition;
     }
-
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
-
-    @ManagedPages(defaultUrl = "http://en.wiktionary.org/wiki/Wiktionary:Main_Page")
-    public Pages pages;
 
     @Steps
     public WikipediaEndUserSteps endUser;

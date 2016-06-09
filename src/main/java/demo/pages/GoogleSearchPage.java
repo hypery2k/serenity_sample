@@ -2,17 +2,19 @@ package demo.pages;
 
 
 import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@DefaultUrl("https://google.com")
 public class GoogleSearchPage extends PageObject {
 
     public GoogleSearchPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@type=\"search\"]")
+    @FindBy(xpath = "//input[@type=\"search\"]|//input[@type=\"text\"]")
     private WebElement searchInput;
 
     @FindBy(xpath = "//button[@type=\"submit\"]")

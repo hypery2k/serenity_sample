@@ -4,7 +4,6 @@ import demo.requirements.Wikipedia;
 import demo.steps.WikipediaEndUserSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
-import net.thucydides.core.pages.Pages;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -13,14 +12,11 @@ import org.openqa.selenium.WebDriver;
 @RunWith(SerenityRunner.class)
 public class WikipediaSearchByKeywordStoryIT {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
-
-    @ManagedPages(defaultUrl = "http://en.wiktionary.org/wiki/Wiktionary")
-    public Pages pages;
+    @Managed
+    WebDriver driver;
 
     @Steps
-    public WikipediaEndUserSteps endUser;
+    WikipediaEndUserSteps endUser;
 
     @Issue("#1")
     @Test

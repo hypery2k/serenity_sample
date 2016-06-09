@@ -11,10 +11,6 @@ import static org.hamcrest.Matchers.hasItem;
 
 public class WikipediaEndUserSteps extends ScenarioSteps {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7340710438755505089L;
 	WikipediaMainPage dictionaryPage;
 
 	@Step

@@ -10,11 +10,12 @@ import org.openqa.selenium.WebElement;
 
 @RunWith(SerenityRunner.class)
 public class GoogleSerenityDriverIT {
+
     @Managed
-    public WebDriver webdriver;
+    WebDriver webdriver;
 
     @Test
-    public void googleSearchTest() {
+    public void legacyTest() {
         // And now use this to visit Google
         webdriver.get("http://www.google.com");
 

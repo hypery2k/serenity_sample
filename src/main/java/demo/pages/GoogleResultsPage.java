@@ -1,5 +1,6 @@
 package demo.pages;
 
+import io.appium.java_client.pagefactory.iOSFindBy;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -15,13 +16,19 @@ public class GoogleResultsPage extends PageObject {
         super(driver);
     }
 
+    public final static String SEARCH_RESULT_SELECTOR = "//*[@id='search']//*[contains(@class,'srg')]//div[contains(@class,'g')]";
+
     @FindBy(id = "search")
     private WebElement searchResults;
 
+    @iOSFindBy(uiAutomator = ".elements()[0]")
+    private WebElement languagePopUp;
+
     public void findResult(String resultsTerm) {
         element(searchResults).waitUntilVisible();
-        waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div#search li.g")));
-        List<WebElement> resultList = searchResults.findElements(By.cssSelector("li.g"));
+
+        waitFor(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(SEARCH_RESULT_SELECTOR)));
+        List<WebElement> resultList = searchResults.findElements(By.xpath(SEARCH_RESULT_SELECTOR));
 
         theFor:
         for (WebElement elementNow : resultList) {

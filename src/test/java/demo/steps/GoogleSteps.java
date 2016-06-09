@@ -71,7 +71,6 @@ public class GoogleSteps extends ScenarioSteps {
 	@StepGroup
 	public void performSearch(String search) {
 		inputSearchTerm(search);
-
 		clickOnSearch();
 	}
 

@@ -4,7 +4,6 @@ import demo.requirements.Google;
 import demo.steps.GoogleSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
-import net.thucydides.core.pages.Pages;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -13,14 +12,11 @@ import org.openqa.selenium.WebDriver;
 @Story(Google.Search.SearchPending.class)
 public class GoogleSearchPendingTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
-
-    @ManagedPages(defaultUrl = "https://www.google.com")
-    public Pages pages;
+    @Managed
+    WebDriver driver;
 
     @Steps
-    public GoogleSteps googleSteps;
+    GoogleSteps googleSteps;
 
     @Test
     @Pending
