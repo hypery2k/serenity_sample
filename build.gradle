@@ -34,9 +34,12 @@ dependencies {
 }
 
 test {
-    options {
-        systemProperties(System.getProperties())
+    testLogging {
+        showStandardStreams = true
     }
+    systemProperties(System.getProperties())
+    maxParallelForks = 8
+    ignoreFailures true
 }
 
 // continue build to generate reports
