@@ -14,13 +14,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <parallel-tests>2</parallel-tests>
-        <serenity.version>1.1.34</serenity.version>
+        <serenity.version>1.1.37-rc.6</serenity.version>
         <webdriver.driver>firefox</webdriver.driver>
         <hamcrest-library.version>1.3</hamcrest-library.version>
         <slf4j.version>1.7.7</slf4j.version>
         <junit.version>4.12</junit.version>
         <maven-eclipse-plugin.version>2.7</maven-eclipse-plugin.version>
-	<serenity-maven-plugin.version>1.1.33</serenity-maven-plugin.version>
+	      <serenity-maven-plugin.version>1.1.37-rc.6</serenity-maven-plugin.version>
     </properties>
 
     <dependencies>
