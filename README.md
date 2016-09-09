@@ -42,5 +42,5 @@ mvn verify
 
 See example in Jenkins [here](https://martinreinhardt-online.de/jenkins/view/Demos/job/Serenity/job/serenity_maven_sample).
 
-A sample report can be viewed [here](https://martinreinhardt-online.de/jenkins/view/Demos/job/Serenity/job/serenity_maven_sample/Serenity_Report/.
+A sample report can be viewed [here](https://martinreinhardt-online.de/jenkins/view/Demos/job/Serenity/job/serenity_maven_sample/Serenity_Report/).
 
